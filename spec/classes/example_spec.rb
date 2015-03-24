@@ -18,8 +18,8 @@ describe 'riak2' do
           it { is_expected.to contain_class('riak2::config') }
           it { is_expected.to contain_class('riak2::service').that_subscribes_to('riak2::config') }
 
-          it { is_expected.to contain_service('riak2') }
-          it { is_expected.to contain_package('riak2').with_ensure('present') }
+          it { is_expected.to contain_service('riak') }
+          it { is_expected.to contain_package('riak').with_ensure('present') }
         end
       end
     end
@@ -32,7 +32,7 @@ describe 'riak2' do
         :operatingsystem => 'Nexenta',
       }}
 
-      it { expect { is_expected.to contain_package('riak2') }.to raise_error(Puppet::Error, /Nexenta not supported/) }
+      it { expect { is_expected.to contain_package('riak') }.to raise_error(Puppet::Error, /Nexenta not supported/) }
     end
   end
 end

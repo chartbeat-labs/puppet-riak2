@@ -5,6 +5,6 @@
 class riak2::install {
 
   package { $::riak2::package_name:
-    ensure => present,
+    ensure => "present",
   }
 }

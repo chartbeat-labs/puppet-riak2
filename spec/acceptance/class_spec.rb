@@ -14,11 +14,11 @@ describe 'riak2 class' do
       apply_manifest(pp, :catch_changes  => true)
     end
 
-    describe package('riak2') do
+    describe package('riak') do
       it { is_expected.to be_installed }
     end
 
-    describe service('riak2') do
+    describe service('riak') do
       it { is_expected.to be_enabled }
       it { is_expected.to be_running }
     end
