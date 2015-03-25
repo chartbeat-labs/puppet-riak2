@@ -26,7 +26,7 @@ class riak2::params {
     'background_manager'                                 => 'off',
     'bitcask.data_root'                                  => '$(platform_data_dir)/bitcask',
     'bitcask.expiry'                                     => 'off',
-    'bitcask.expiry.grace_time'                          => '0',
+    #'bitcask.expiry.grace_time'                          => '0',
     'bitcask.fold.max_age'                               => 'unlimited',
     'bitcask.fold.max_puts'                              => '0',
     'bitcask.hintfile_checksums'                         => 'strict',
