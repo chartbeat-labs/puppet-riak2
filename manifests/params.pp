@@ -177,6 +177,8 @@ class riak2::params {
   $manage_service_limits = true
   $ulimit_nofiles = 65536
 
+  $version = '2.0.5-1'
+
   case $::osfamily {
     'Debian': {
       $package_name = 'riak'
