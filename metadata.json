@@ -4,9 +4,9 @@
   "author": "Chartbeat",
   "summary": "For management of Riak 2.0 nodes",
   "license": "MIT",
-  "source": "https://github.com/chartbeat/puppet-riak2.git",
-  "project_page": "https://github.com/chartbeat/puppet-riak2",
-  "issues_url": "https://github.com/chartbeat/puppet-riak2/issues",
+  "source": "https://github.com/chartbeat-labs/puppet-riak2.git",
+  "project_page": "https://github.com/chartbeat-labs/puppet-riak2",
+  "issues_url": "https://github.com/chartbeat-labs/puppet-riak2/issues",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
