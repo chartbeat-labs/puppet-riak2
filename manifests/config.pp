@@ -27,7 +27,7 @@ class riak2::config {
   }
 
   exec { 'validate_config':
-    command     => 'riak chkconfig',
+    command     => '/usr/sbin/riak chkconfig',
     refreshonly => true,
   }
 

@@ -9,17 +9,16 @@ describe 'riak2' do
         end
 
         context "riak2 class without any parameters" do
-          let(:params) {{ }}
+          let(:params) {{ :version => '2.0.5-1' }}
 
           it { is_expected.to compile.with_all_deps }
 
           it { is_expected.to contain_class('riak2::params') }
           it { is_expected.to contain_class('riak2::install').that_comes_before('riak2::config') }
-          it { is_expected.to contain_class('riak2::config') }
-          it { is_expected.to contain_class('riak2::service').that_subscribes_to('riak2::config') }
+          it { is_expected.to contain_class('riak2::config').that_comes_before('riak2::service') }
 
           it { is_expected.to contain_service('riak') }
-          it { is_expected.to contain_package('riak').with_ensure('present') }
+          it { is_expected.to contain_package('riak').with_ensure('2.0.5-1') }
         end
       end
     end
