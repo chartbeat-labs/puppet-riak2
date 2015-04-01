@@ -58,6 +58,7 @@ class riak2 (
   $platform_log_dir       = $::riak2::params::platform_log_dir,
   $manage_pam_limits      = $::riak2::params::manage_pam_limits,
   $manage_service_limits  = $::riak2::params::manage_service_limits,
+  $manage_service         = $::riak2::params::manage_service,
   $ulimit_nofiles         = $::riak2::params::ulimit_nofiles,
 
 ) inherits ::riak2::params {

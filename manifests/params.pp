@@ -175,6 +175,8 @@ class riak2::params {
 
   $manage_pam_limits = true
   $manage_service_limits = true
+  $manage_service = false
+
   $ulimit_nofiles = 65536
 
   $version = '2.0.5-1'

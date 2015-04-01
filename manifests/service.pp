@@ -5,8 +5,14 @@
 #
 class riak2::service {
 
+  $manage_service_ensure = $::riak2::manage_service ? {
+    true    => 'running',
+    false   => undef,
+    default => undef,
+  }
+
   service { $::riak2::service_name:
-    ensure     => running,
+    ensure     => $manage_service_ensure,
     enable     => true,
     hasstatus  => true,
     hasrestart => true,
