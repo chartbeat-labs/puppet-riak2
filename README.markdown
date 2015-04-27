@@ -22,20 +22,29 @@ Expects package to exist in the servers available repos, no support for specifyi
 
 
 ## Usage
-
-include ::riak2
+```puppet
+    include ::riak2
+```
 
 or
 
-class { '::riak2':
-  config => {
-    'dtrace' => 'on',
-  }
-}
+```puppet
+    class { '::riak2':
+      config => {
+        'dtrace' => 'on',
+      }
+    }
+```
 
 ## Reference
+####Public Classes
+ * [`riak`]
+####Private Classes
+ * [`riak::install`]
+ * [`riak::params`]
+ * [`riak::config`]
+ * [`riak::service`]
 
-Here, list the classes, types, providers, facts, etc contained in your module. This section should include all of the under-the-hood workings of your module so people know what the module is touching on their system but don't need to mess with things. (We are working on automating this section!)
 
 ## Limitations
 
