@@ -9,7 +9,7 @@ describe 'riak2' do
         end
 
         context "riak2 class without any parameters" do
-          let(:params) {{ :version => '2.0.5-1' }}
+          let(:params) {{ }}
 
           it { is_expected.to compile.with_all_deps }
 
@@ -18,6 +18,32 @@ describe 'riak2' do
           it { is_expected.to contain_class('riak2::config').that_comes_before('riak2::service') }
 
           it { is_expected.to contain_service('riak') }
+          it { is_expected.to contain_package('riak').with_ensure('2.0.5-1') }
+        end
+
+        context "riak2 class with any parameters" do
+          let(:params) {{
+            :version            => '2.0.5-1',
+            :platform_log_dir   => '/tmp/log_dir',
+            :platform_data_dir  => '/tmp/data_dir',
+            :user               => 'riak',
+            :group              => 'riak'
+            }}
+
+          it { is_expected.to compile.with_all_deps }
+
+          it { is_expected.to contain_file('/tmp/log_dir').with({
+            'ensure'   => 'directory',
+            'owner'   => 'riak',
+            'group'   => 'riak',
+          })}
+
+          it { is_expected.to contain_file('/tmp/data_dir').with({
+            'ensure'   => 'directory',
+            'owner'   => 'riak',
+            'group'   => 'riak',
+          })}
+
           it { is_expected.to contain_package('riak').with_ensure('2.0.5-1') }
         end
       end

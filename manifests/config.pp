@@ -13,7 +13,7 @@ class riak2::config {
     true  => [Riak2::Service[$riak2::service_name], Exec['validate_config']],
     false => Exec['validate_config'],
   }
- 
+
 
   # Merge overridden config values with defaults
   # right most hash wins on duplicate keys
