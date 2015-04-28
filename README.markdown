@@ -39,6 +39,7 @@ or
 ## Reference
 ####Public Classes
  * [`riak`]
+
 ####Private Classes
  * [`riak::install`]
  * [`riak::params`]
