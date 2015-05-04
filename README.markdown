@@ -38,13 +38,13 @@ or
 
 ## Reference
 ####Public Classes
- * [`riak`]
+ * [`riak2`]
 
 ####Private Classes
- * [`riak::install`]
- * [`riak::params`]
- * [`riak::config`]
- * [`riak::service`]
+ * [`riak2::install`]
+ * [`riak2::params`]
+ * [`riak2::config`]
+ * [`riak2::service`]
 
 
 ## Limitations
