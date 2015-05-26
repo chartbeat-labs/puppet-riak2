@@ -17,13 +17,18 @@ describe 'riak2' do
           it { is_expected.to contain_class('riak2::install').that_comes_before('riak2::config') }
           it { is_expected.to contain_class('riak2::config').that_comes_before('riak2::service') }
 
-          it { is_expected.to contain_service('riak') }
+          it { is_expected.to contain_service('riak').with({
+            'ensure' => nil,
+            'enable' => true,
+          })}
           it { is_expected.to contain_package('riak').with_ensure('2.0.5-1') }
         end
 
         context "riak2 class with any parameters" do
           let(:params) {{
             :version            => '2.0.5-1',
+            :disableboot        => true,
+            :manage_service     => false,
             :platform_log_dir   => '/tmp/log_dir',
             :platform_data_dir  => '/tmp/data_dir',
             :user               => 'riak',
@@ -45,6 +50,11 @@ describe 'riak2' do
           })}
 
           it { is_expected.to contain_package('riak').with_ensure('2.0.5-1') }
+
+          it { is_expected.to contain_service('riak').with({
+            'ensure' => nil,
+            'enable' => false,
+          })}
         end
       end
     end

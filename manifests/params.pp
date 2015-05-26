@@ -170,6 +170,9 @@ class riak2::params {
   # Bounce riak on config changes
   $restart_on_change = false
 
+  # Disable riak from being started on boot
+  $disableboot = false
+
   $user = 'riak'
   $group = 'riak'
 

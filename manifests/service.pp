@@ -11,9 +11,15 @@ class riak2::service {
     default => undef,
   }
 
+  $manage_service_enable = $::riak2::disableboot ? {
+    true    => false,
+    false   => true,
+    default => true,
+  }
+
   service { $::riak2::service_name:
     ensure     => $manage_service_ensure,
-    enable     => true,
+    enable     => $manage_service_enable,
     hasstatus  => true,
     hasrestart => true,
   }
