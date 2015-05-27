@@ -65,6 +65,7 @@ describe 'riak2' do
       let(:facts) {{
         :osfamily        => 'Solaris',
         :operatingsystem => 'Nexenta',
+        :ipaddress       => '127.0.0.1',
       }}
 
       it { expect { is_expected.to contain_package('riak') }.to raise_error(Puppet::Error, /Nexenta not supported/) }

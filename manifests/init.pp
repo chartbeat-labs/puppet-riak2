@@ -68,6 +68,7 @@ class riak2 (
   # validate parameters here
   # Couldn't figure out how to get these values in riak2::params properly?
   $config_dirs = {
+    'nodename'          => $node_name,
     'platform_data_dir' => $platform_data_dir,
     'platform_log_dir'  => $platform_log_dir,
   }

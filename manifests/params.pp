@@ -5,6 +5,8 @@
 #
 class riak2::params {
 
+  $node_name = "riak@${::fqdn}"
+
   $platform_data_dir = '/var/lib/riak'
   $platform_log_dir = '/var/log/riak'
 
