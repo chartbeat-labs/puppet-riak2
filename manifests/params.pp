@@ -5,6 +5,8 @@
 #
 class riak2::params {
 
+  $node_name = "riak@${::fqdn}"
+
   $platform_data_dir = '/var/lib/riak'
   $platform_log_dir = '/var/log/riak'
 
@@ -169,6 +171,9 @@ class riak2::params {
 
   # Bounce riak on config changes
   $restart_on_change = false
+
+  # Disable riak from being started on boot
+  $disableboot = false
 
   $user = 'riak'
   $group = 'riak'

@@ -36,11 +36,12 @@
 # [*platform_log_dir*]
 #   Root dir of where log files are stored, will create dir
 #
+# [*disableboot*]
+#   Disable riak service from being started at boottime
+#
 # [*manage_pam_limits*]
-#   
 #
 # [*manage_service_limits*]
-#   
 #
 # [*ulimit_nofiles*]
 #   Open files limits
@@ -56,6 +57,7 @@ class riak2 (
   $group                  = $::riak2::params::group,
   $platform_data_dir      = $::riak2::params::platform_data_dir,
   $platform_log_dir       = $::riak2::params::platform_log_dir,
+  $disableboot            = $::riak2::params::disableboot,
   $manage_pam_limits      = $::riak2::params::manage_pam_limits,
   $manage_service_limits  = $::riak2::params::manage_service_limits,
   $manage_service         = $::riak2::params::manage_service,
@@ -66,6 +68,7 @@ class riak2 (
   # validate parameters here
   # Couldn't figure out how to get these values in riak2::params properly?
   $config_dirs = {
+    'nodename'          => $node_name,
     'platform_data_dir' => $platform_data_dir,
     'platform_log_dir'  => $platform_log_dir,
   }
