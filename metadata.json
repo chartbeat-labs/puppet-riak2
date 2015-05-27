@@ -1,6 +1,6 @@
 {
   "name": "puppet-riak2",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "Chartbeat",
   "summary": "For management of Riak 2.0 nodes",
   "license": "MIT",
