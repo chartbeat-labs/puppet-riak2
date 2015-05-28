@@ -9,6 +9,8 @@
 
 ## Overview
 
+[![Build Status](https://travis-ci.org/chartbeat-labs/puppet-riak2.svg?branch=master)](https://travis-ci.org/chartbeat-labs/puppet-riak2)
+
 Module for installing and configuring Riak 2.0.x
 
 ## Module Description
