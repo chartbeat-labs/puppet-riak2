@@ -5,6 +5,6 @@
 class riak2::install {
 
   package { $::riak2::package_name:
-    ensure => "${::riak2::version}",
+    ensure => $::riak2::version,
   }
 }

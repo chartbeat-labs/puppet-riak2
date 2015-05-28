@@ -32,21 +32,21 @@ class riak2::config {
   }
 
   # Ensure data and log dir created with proper perms
-  file { "${riak2::platform_data_dir}":
-    ensure  => 'directory',
-    mode    => '0640'
+  file { $riak2::platform_data_dir:
+    ensure => 'directory',
+    mode   => '0640'
   }
 
-  file { "${riak2::platform_log_dir}":
-    ensure  => 'directory',
-    mode    => '0644'
+  file { $riak2::platform_log_dir:
+    ensure => 'directory',
+    mode   => '0644'
   }
 
   if $riak2::manage_pam_limits {
     file { '/etc/security/limits.d/riak.conf':
       owner   => 'root',
       group   => 'root',
-      mode    => '644',
+      mode    => '0644',
       content => template("${module_name}/limits.conf.erb")
     }
   }
