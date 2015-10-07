@@ -184,7 +184,7 @@ class riak2::params {
 
   $ulimit_nofiles = 65536
 
-  $version = '2.0.6-1'
+  $version = '2.0.5-1'
 
   case $::osfamily {
     'Debian': {
