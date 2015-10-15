@@ -28,6 +28,7 @@ describe 'riak2' do
           let(:params) {{
             :version            => '2.0.5-1',
             :disableboot        => true,
+            :restart_on_change  => true,
             :manage_service     => false,
             :platform_log_dir   => '/tmp/log_dir',
             :platform_data_dir  => '/tmp/data_dir',
