@@ -10,7 +10,7 @@ class riak2::config {
   }
 
   $notify_service = $riak2::restart_on_change ? {
-    true  => [Riak2::Service[$riak2::service_name], Exec['validate_config']],
+    true  => [Service[$riak2::service_name], Exec['validate_config']],
     false => Exec['validate_config'],
   }
 
