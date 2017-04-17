@@ -43,23 +43,28 @@ class riak2::config {
   }
 
   if $riak2::manage_pam_limits {
-    file { '/etc/security/limits.d/riak.conf':
-      owner   => 'root',
-      group   => 'root',
-      mode    => '0644',
-      content => template("${module_name}/limits.conf.erb")
+    if ::operatingsystem == 'Debian' and ::operatingsystemmajrelease == '7' {
+      file_line { "${name}::add_pam_limits_to_sudo":
+        path => '/etc/pam.d/sudo',
+        line => 'session required pam_limits.so',
+      }
     }
-  }
+
+    file { '/etc/security/limits.d/riak.conf':
+       owner   => 'root',
+       group   => 'root',
+       mode    => '0644',
+       content => template("${module_name}/limits.conf.erb")
+     }
+   }
 
   if $riak2::manage_service_limits {
-    file { '/etc/default/riak':
-      owner   => 'root',
-      group   => 'root',
-      mode    => '0644',
-      content => "ulimit -n ${riak2::ulimit_nofiles}",
-    }
-  }
-
-
+     file { '/etc/default/riak':
+       owner   => 'root',
+       group   => 'root',
+       mode    => '0644',
+       content => "ulimit -n ${riak2::ulimit_nofiles}",
+     }
+   }
 
 }
